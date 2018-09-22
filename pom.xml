@@ -7,6 +7,34 @@
     <groupId>com.jubee.study</groupId>
     <artifactId>cxf-books</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <osgi.version>5.0.0</osgi.version>
+    </properties>
+    <packaging>bundle</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>${osgi.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Activator>com.jubee.study.Activator</Bundle-Activator>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
