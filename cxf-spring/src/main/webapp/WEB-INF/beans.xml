@@ -9,11 +9,14 @@
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
+    <bean name="booksResourceBean" class="com.jubee.study.BooksResource"/>
 
-    <jaxrs:server id="helloService" address="/hello">
+    <jaxrs:server id="helloService" address="/books">
 
         <jaxrs:serviceBeans>
-            <bean class="com.jubee.study.HelloService"/>
+            <bean class="com.jubee.study.BooksService">
+                <constructor-arg ref="booksResourceBean"/>
+            </bean>
         </jaxrs:serviceBeans>
 
     </jaxrs:server>
